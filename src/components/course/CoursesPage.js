@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 import {bindActionCreators} from 'redux';
 
+
 class CoursesPage extends React.Component {
   constructor(props, context){
     super(props, context);
@@ -13,6 +14,7 @@ class CoursesPage extends React.Component {
 
     this.onClickSave = this.onClickSave.bind(this);
     this.onTitleChange = this. onTitleChange.bind(this);
+    this.onClickDelete = this.onClickDelete.bind(this);
   }
 
   onTitleChange(event) {
@@ -24,6 +26,10 @@ class CoursesPage extends React.Component {
   //this is wrapped in a dispatch below
   onClickSave(){
     this.props.actions.createCourse(this.state.course);
+  }
+
+  onClickDelete(){
+    this.props.actions.deleteCourse(this.state.course);
   }
 
   courseRow(course,index){
@@ -44,6 +50,10 @@ class CoursesPage extends React.Component {
           type="submit"
           value="Save"
           onClick={this.onClickSave} />
+        <input
+          type="submit"
+          value="Remove"
+          onClick={this.onClickDelete} />
       </div>
     );
   }

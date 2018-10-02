@@ -6,3 +6,10 @@ export function createCourse(course) {
     course: course
   };
 }
+
+export function deleteCourse(course) {
+  return {
+    type: 'DELETE_COURSE',
+    course:course
+  };
+}
